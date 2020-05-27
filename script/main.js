@@ -36,18 +36,18 @@ const renderCard = response => {
           backdrop_path: backdrop, 
           name: title, 
           poster_path: poster, 
-          vote_average:vote
+          vote_average: vote
         } = item
         
         const posterIMG = poster ? IMG_URL + poster : 'img/no-poster.jpg';
-        const backdropIMG = '';
-        const voteValue = '';
+        const backdropIMG = backdrop ? IMG_URL + backdrop : '';
+        const voteValue = vote === 0 ? '' : vote;
 
         const card = document.createElement('li');
         card.className = 'tv-shows__item';
         card.innerHTML = `
         <a href="#" class="tv-card">
-          <span class="tv-card__vote">${vote}</span>
+          <span class="tv-card__vote">${voteValue}</span>
           <img class="tv-card__img"
               src="${posterIMG}"
               data-backdrop="${IMG_URL + backdrop}"
